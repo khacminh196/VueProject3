@@ -28,9 +28,9 @@
                     <table width="100%" height="600px" border="1px solid">
                         <tr>
                             <td></td>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Phone</th>
+                            <th>{{ $t('formElement.name') }}</th>
+                            <th>{{ $t('formElement.age') }}</th>
+                            <th>{{ $t('formElement.phone') }}</th>
                         </tr>
                         <tr v-for="user in users" v-bind:key="user.id">
                             <td>{{ user.id }}</td>
