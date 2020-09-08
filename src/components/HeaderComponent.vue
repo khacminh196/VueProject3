@@ -31,6 +31,7 @@ export default {
     },
     mounted() {
         this.getLocales()
+        this.selected = this.$i18n.locale
     },
     methods : {
         getLocales() {
