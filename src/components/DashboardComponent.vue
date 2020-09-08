@@ -25,20 +25,15 @@
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
                 <div class="ecommerce-widget">
-                    <table width="100%" height="600px" border="1px solid">
-                        <tr>
-                            <td></td>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Phone</th>
-                        </tr>
-                        <tr v-for="user in users" v-bind:key="user.id">
-                            <td>{{ user.id }}</td>
-                            <td>{{ user.name }}</td>
-                            <td>{{ user.age }}</td>
-                            <td>{{ user.phone }}</td>
-                        </tr>
-                    </table>
+                    <div>
+                        <form action="sads" @submit.prevent>
+                            Email : <input v-validate="'required|email'" name="email" type="text" /><br />
+                            <span>{{ errors.first('email') }}</span><br>
+                            Password : <input v-validate="'required|min:6'" name="name" type="password" /><br />
+                            <span>{{ errors.first('name') }}</span><br>
+                            <button @click="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -94,6 +89,19 @@ export default {
                 },
             ]
         }
+    },
+    methods: {
+        submit() {
+            this.$validator.validateAll().then((result) => {
+                if (result) {
+                    alert('Form Submitted!');
+                return;
+                }
+            });
+        }
+    },
+    mounted() {
+        
     }
 }
 </script>
