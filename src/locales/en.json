@@ -16,5 +16,9 @@
       "about" : "About",
       "support" : "Support",
       "contact" : "Contact Us"
+  },
+  "locales" : {
+      "vi" : "Vietnamese",
+      "en" : "English"
   }
 }
