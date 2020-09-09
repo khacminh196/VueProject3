@@ -1,0 +1,24 @@
+{
+    "menu" : {
+        "menu" : "Danh sách",
+        "dashboard" : "Điều khiển",
+        "element" : "Thành phần",
+        "chart" : "Biểu đồ",
+        "form" : "Mẫu",
+        "table" : "Bảng"
+    },
+    "formElement" : {
+        "name" : "Tên",
+        "age"  : "Tuổi",
+        "phone" : "SDT"
+    },
+    "footer" : {
+        "about" : "Về chúng tôi",
+        "support" : "Hỗ trợ",
+        "contact" : "Liên hệ"
+    },
+    "locales" : {
+        "vi" : "Tieng Viet",
+        "en" : "Tieng Anh"
+    }
+}

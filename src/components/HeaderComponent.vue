@@ -2,7 +2,7 @@
     <div>
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Concept</a>
+                <a class="navbar-brand">Concept</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -14,7 +14,9 @@
                             </div>
                         </li>
                     </ul>
-                       <!-- <v-select class="style-chooser" v-model="selected" :options="this.locales" @input="handleChangeLocale(selected)"></v-select>  -->
+                    <select @change="handleChangeLocale($event)">
+                        <option v-for="(locale, index) in locales" v-bind:key="index" :value="locale">{{ $t(`locales.${locale}`) }}</option>
+                    </select>
                 </div>
             </nav>
         </div>
@@ -24,14 +26,24 @@
 <script>
 export default {
     data() {
-    
-    },
-    methods: {
-    
+        return {
+            locales : [],
+        }
     },
     mounted() {
-        
+        this.getLocales()
     },
+    methods : {
+        getLocales() {
+            for (const key in this.$i18n.messages) {
+                this.locales.push(key)
+            }
+        },
+        handleChangeLocale(event) {
+            this.$i18n.locale = event.target.value
+            localStorage.setItem('lang', event.target.value)
+        }
+    }
 }
 </script>
 
