@@ -16,5 +16,9 @@
         "about" : "Về chúng tôi",
         "support" : "Hỗ trợ",
         "contact" : "Liên hệ"
+    },
+    "locales" : {
+        "vi" : "Tieng Viet",
+        "en" : "Tieng Anh"
     }
 }
