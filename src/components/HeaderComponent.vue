@@ -14,7 +14,9 @@
                             </div>
                         </li>
                     </ul>
-                       <v-select class="style-chooser" v-model="selected" :options="locales" @input="handleChangeLocale(selected)"></v-select> 
+                    <select @change="handleChangeLocale($event)">
+                        <option v-for="(locale, index) in locales" v-bind:key="index" :value="locale">{{ $t(`locales.${locale}`) }}</option>
+                    </select>
                 </div>
             </nav>
         </div>
@@ -26,12 +28,10 @@ export default {
     data() {
         return {
             locales : [],
-            selected : ''
         }
     },
     mounted() {
         this.getLocales()
-        this.selected = this.$i18n.locale
     },
     methods : {
         getLocales() {
@@ -39,9 +39,9 @@ export default {
                 this.locales.push(key)
             }
         },
-        handleChangeLocale(locale) {
-            this.$i18n.locale = locale
-            localStorage.setItem('lang', locale)
+        handleChangeLocale(event) {
+            this.$i18n.locale = event.target.value
+            localStorage.setItem('lang', event.target.value)
         }
     }
 }
